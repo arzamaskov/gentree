@@ -1,0 +1,19 @@
+#!/usr/bin/env php
+<?php
+
+require dirname(__DIR__) . '/vendor/autoload.php';
+
+use App\Command\GenerateTree;
+use App\Service\{CsvReader, JsonSerializer, TreeBuilder};
+use Symfony\Component\Console\Application;
+
+$application = new Application('gentree', '0.0.1');
+
+$csvReader = new CsvReader();
+$jsonSerializer = new JsonSerializer();
+$treeBuilder = new TreeBuilder();
+
+$generateTree = new GenerateTree($csvReader, $jsonSerializer, $treeBuilder);
+
+$application->add($generateTree);
+$application->run();
