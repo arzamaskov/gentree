@@ -3,7 +3,7 @@
     "description": "CSV to JSON file converter",
     "type": "project",
     "require": {
-        "docopt/docopt": "^1.0"
+        "symfony/console": "^6.3"
     },
     "require-dev": {
         "phpunit/phpunit": "^10.3",
@@ -13,7 +13,8 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Arzamaskov\\Gentree\\": "src/"
+            "App\\": "src/",
+            "Tests\\": "tests/"
         }
     },
     "authors": [
@@ -21,5 +22,8 @@
             "name": "Andrey Arzamaskov",
             "email": "arzamaskov@gmail.com"
         }
+    ],
+    "bin": [
+        "bin/gentree"
     ]
 }
