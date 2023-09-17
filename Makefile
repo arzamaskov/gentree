@@ -11,3 +11,12 @@ install:
 
 run:
 	docker run -it -v $(PWD):/app app bash
+
+lint:
+	docker run -it -v $(PWD):/app app bash -c "vendor/bin/phpcs src"
+
+fix:
+	docker run -it -v $(PWD):/app app bash -c "vendor/bin/php-cs-fixer fix src"
+
+test:
+	docker run -it -v $(PWD):/app app bash -c "vendor/bin/phpunit tests"
